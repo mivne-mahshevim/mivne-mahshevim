@@ -1,0 +1,10 @@
+{
+  "name": "מבנה מחשבים (20144) — קורס אינטראקטיבי",
+  "short_name": "מבנה מחשבים",
+  "start_url": "./00_Course_Hub_HE.html",
+  "display": "standalone",
+  "background_color": "#eef4f6",
+  "theme_color": "#087d73",
+  "lang": "he",
+  "dir": "rtl"
+}

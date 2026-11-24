@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="0; url=00_Course_Hub_HE.html">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="manifest" href="manifest.json">
+  <title>מבנה מחשבים — שער הקורס</title>
+</head>
+<body style="font-family:sans-serif;text-align:center;padding:40px;">
+  <p>מעביר לשער הקורס... <a href="00_Course_Hub_HE.html">לחץ כאן אם לא עבר אוטומטית</a></p>
+  <script>
+    if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+      navigator.serviceWorker.register('./sw.js').catch(function(){});
+    }
+    location.replace('00_Course_Hub_HE.html');
+  </script>
+</body>
+</html>
