@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <title>שער הקורס — מבנה מחשבים (20144) | כל 13 הפרקים</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --sans: 'Heebo', 'Assistant', 'Segoe UI', Arial, -apple-system, BlinkMacSystemFont, sans-serif;
+      --bg: #eef4f6;
+      --card: #ffffff;
+      --ink: #172734;
+      --mut: #526778;
+      --teal: #087d73;
+      --teal-dark: #066159;
+      --teal-soft: #e6f5f1;
+      --bd: #d4e1e6;
+      --scale: 1;
+    }
+    * { box-sizing: border-box; }
+    html { font-size: calc(16px * var(--scale)); width: 100%; max-width: 100%; overflow-x: hidden; overflow-x: clip; }
+    body { width: 100%; max-width: 100%; overflow-x: hidden; overflow-x: clip; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.7;
+      font-weight: 400;
+      padding-bottom: 48px;
+    }
+    .hero {
+      background: linear-gradient(115deg, #163947, #087d73);
+      color: #fff;
+      padding: 26px 18px 24px;
+      box-shadow: 0 4px 20px rgba(15, 43, 53, 0.16);
+    }
+    .hero-in {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+    .ey {
+      font-size: 0.9rem;
+      color: #b7efe2;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+    .hero h1 {
+      margin: 0 0 8px;
+      font-size: clamp(1.45rem, 2.5vw + 0.9rem, 2.1rem);
+      font-weight: 700;
+      line-height: 1.25;
+    }
+    .hero p {
+      margin: 0 0 14px;
+      color: #e4f6f2;
+      max-width: 720px;
+      font-size: 1rem;
+    }
+    .hero-tools {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .search-box {
+      flex: 1 1 260px;
+      max-width: 460px;
+      padding: 11px 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.35);
+      background: rgba(255,255,255,0.96);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 1rem;
+      min-height: 44px;
+    }
+    .font-ctl {
+      display: inline-flex;
+      gap: 6px;
+    }
+    .font-ctl button {
+      border: 1px solid rgba(255,255,255,0.35);
+      background: rgba(255,255,255,0.16);
+      color: #fff;
+      border-radius: 10px;
+      padding: 8px 14px;
+      min-height: 44px;
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .font-ctl button:hover { background: rgba(255,255,255,0.28); }
+    .wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 18px 14px;
+    }
+    .tips {
+      background: #fff;
+      border: 1px solid var(--bd);
+      border-right: 4px solid var(--teal);
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-bottom: 20px;
+      font-size: 0.96rem;
+    }
+    .tips strong { font-weight: 600; color: var(--teal-dark); }
+    .unit-sec { margin-bottom: 24px; }
+    .unit-sec h2 {
+      font-size: 1.22rem;
+      font-weight: 700;
+      color: #133c39;
+      margin: 0 0 12px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid #cbe2de;
+    }
+    .ch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 13px;
+    }
+    .ch-card {
+      display: flex;
+      flex-direction: column;
+      background: var(--card);
+      border: 1px solid var(--bd);
+      border-radius: 13px;
+      padding: 16px;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.14s, border-color 0.14s, box-shadow 0.14s;
+      box-shadow: 0 2px 10px rgba(20, 45, 58, 0.04);
+    }
+    .ch-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--teal);
+      box-shadow: 0 8px 22px rgba(8, 125, 115, 0.12);
+    }
+    .ch-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .ch-num {
+      background: var(--teal-soft);
+      color: var(--teal-dark);
+      font-weight: 600;
+      font-size: 0.88rem;
+      padding: 3px 10px;
+      border-radius: 999px;
+    }
+    .ch-meta {
+      font-size: 0.85rem;
+      color: var(--mut);
+    }
+    .ch-card h3 {
+      margin: 0 0 6px;
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: #142f3d;
+      line-height: 1.35;
+    }
+    .ch-card p {
+      margin: 0 0 12px;
+      font-size: 0.96rem;
+      color: var(--mut);
+      flex: 1;
+    }
+    .ch-go {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--teal);
+    }
+    .hidden { display: none !important; }
+    @media (max-width: 600px) {
+      .hero { padding: 18px 14px; }
+      .ch-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-in">
+      <div class="ey">קורס 20144 · המכללה האקדמית להנדסה אפקה · כל 13 הפרקים</div>
+      <h1>מבנה מחשבים — שער הלמידה המלא</h1>
+      <p>כל המצגות, ההסברים, הסימולטורים, השאלות והמילונים — בטיפוגרפיה עברית נקייה (Heebo) ובהתאמה מלאה למחשב, לטאבלט ולטלפון.</p>
+      <div class="hero-tools">
+        <input type="search" id="hubSearch" class="search-box" placeholder="חפש פרק או נושא (למשל: Pipeline, Cache, MIPS, משלים ל־2)...">
+        <div class="font-ctl">
+          <button type="button" id="fMinus">א−</button>
+          <button type="button" id="fPlus">א+</button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main class="wrap">
+    
+    <div class="tips" style="border-right-color:#2563eb;background:#f8fbff;">
+      <strong>💻 גרסת מחשב (Windows / Mac) + מוכן להעלאה לרשת:</strong>
+      כל 13 הפרקים נפתחים כאן ישירות בלחיצה אחת עם תצוגת Split-Screen (הסבר מימין, סימולטור משמאל).
+      למובייל/טאבלט של חברים בלחיצה אחת — אפשר גם לגרור את התיקייה הזו פעם אחת ל־<strong>Netlify Drop</strong> (כולל <code>index.html</code> ו־PWA שכבר בפנים) ולקבל קישור קבוע.
+      <a href="00_הוראות_הפעלה_מחשב.html" style="color:#087d73;font-weight:700;margin-right:6px;">📖 להוראות המלאות ←</a>
+    </div>
+    <div class="tips">
+      <strong>איך משתמשים בנוחות בכל מכשיר:</strong>
+      בטלפון המסך נפתח כ<strong>חלון קריאה מלא</strong> — ובלחיצה על <strong>🧪 מעבדה</strong> בסרגל התחתון עוברים מיד לסימולטור במסך מלא (וחוזרים ל־<strong>📖 הסבר</strong> בדיוק לאותו מקום). בשרטוטים רחבים לחץ על <strong>🔍 פתח שרטוט במסך מלא</strong> וסובב את הטלפון לרוחב. כפתורי <strong>א− / א+</strong> שומרים את גודל הכתב המועדף עליך בכל הפרקים.
+    </div>
+    
+    <section class="unit-sec">
+      <h2>יחידה 1 · מבוא וייצוג מידע</h2>
+      <div class="ch-grid">
+        <a class="ch-card" href="01_Introduction_FOCUS_HE.html" data-search="01 הקדמה וסקירה כללית רמות הפשטה, מודל פון נוימן, ISA, RISC מול CISC וחוק מור">
+          <div class="ch-top">
+            <span class="ch-num">פרק 01</span>
+            <span class="ch-meta">45 שקפים</span>
+          </div>
+          <h3>הקדמה וסקירה כללית</h3>
+          <p>רמות הפשטה, מודל פון נוימן, ISA, RISC מול CISC וחוק מור</p>
+          <span class="ch-go">פתח פרק ←</span>
+        </a>
+        <a class="ch-card" href="02_Information_Representation_FOCUS_HE.html" data-search="02 ייצוג מידע במחשב בסיסי ספירה, משלים ל־2, Carry מול Overflow, כפל/חילוק ו־ASCII">
+          <div class="ch-top">
+            <span class="ch-num">פרק 02</span>
+            <span class="ch-meta">88 שקפים</span>
+          </div>
+          <h3>ייצוג מידע במחשב</h3>
+          <p>בסיסי ספירה, משלים ל־2, Carry מול Overflow, כפל/חילוק ו־ASCII</p>
+          <span class="ch-go">פתח פרק ←</span>
+        </a>
+      </div>
+    </section>
+    <section class="unit-sec">
+      <h2>יחידה 2 · ביצועים וחומרה בסיסית</h2>
+      <div class="ch-grid">
+        <a class="ch-card" href="03_Performance_COCKPIT_HE.html" data-search="03 הערכת ביצועי מחשב זמן CPU, מדד CPI, תדר שעון, Speedup, חוק אמדל ו־Benchmarks">
+          <div class="ch-top">
+            <span class="ch-num">פרק 03</span>
+            <span class="ch-meta">מעבדת ביצועים + תרגול</span>
+          </div>
+          <h3>הערכת ביצועי מחשב</h3>
+          <p>זמן CPU, מדד CPI, תדר שעון, Speedup, חוק אמדל ו־Benchmarks</p>
+          <span class="ch-go">פתח פרק ←</span>
+        </a>
+        <a class="ch-card" href="04_Logic_ALU_Registers_COCKPIT_HE.html" data-search="04 מעגלים לוגיים, ALU ומקבץ אוגרים שערים, מפענחים, MUX, בניית ALU 32-bit, דלגלגים ומקבץ האוגרים">
+          <div class="ch-top">
+            <span class="ch-num">פרק 04</span>
+            <span class="ch-meta">מעבדת ALU + אוגרים</span>
+          </div>
+          <h3>מעגלים לוגיים, ALU ומקבץ אוגרים</h3>
+          <p>שערים, מפענחים, MUX, בניית ALU 32-bit, דלגלגים ומקבץ האוגרים</p>
+          <span class="ch-go">פתח פרק ←</span>
+        </a>
+      </div>
+    </section>
+    <section class="unit-sec">
+      <h2>יחידה 3 · מעבד חד־מחזורי ואסמבלי</h2>
+      <div class="ch-grid">
+        <a class="ch-card" href="05_Single_Cycle_COCKPIT_HE.html" data-search="05 המעבד החד־מחזורי (MIPS) נתיב הנתונים, בקרה ראשית ומשנית, R/I/J, נתיב קריטי וסימולטור מלא">
+          <div class="ch-top">
+            <span class="ch-num">פרק 05</span>
+            <span class="ch-meta">58 שקפים · 38 שאלות</span>
+          </div>
+          <h3>המעבד החד־מחזורי (MIPS)</h3>
+          <p>נתיב הנתונים, בקרה ראשית ומשנית, R/I/J, נתיב קריטי וסימולטור מלא</p>
+          <span class="ch-go">פתח פרק ←</span>
+        </a>
+        <a class="ch-card" href="06_SingleCycle_Exercises_COCKPIT_HE.html" data-search="06 מעבד חד־מחזורי — תרגול והרחבות הוספת addi ו־bne, איתור תקלות בקווי בקרה ושינויי Datapath">
+          <div class="ch-top">
+            <span class="ch-num">פרק 06</span>
+            <span class="ch-meta">מעבדת תרגול והרחבות</span>
+          </div>
+          <h3>מעבד חד־מחזורי — תרגול והרחבות</h3>
+          <p>הוספת addi ו־bne, איתור תקלות בקווי בקרה ושינויי Datapath</p>
+          <span class="ch-go">פתח פרק ←</span>
+        </a>
+        <a class="ch-card" href="07_MIPS_Assembly_COCKPIT_HE.html" data-search="07 שפת הסף (אסמבלי) של MIPS אוגרים, פקודות מכונה ומדומות, יישור זיכרון, Endianness ו־syscall">
+          <div class="ch-top">
+            <span class="ch-num">פרק 07</span>
+            <span class="ch-meta">מעבדת MIPS + קידוד</span>
+          </div>
+          <h3>שפת הסף (אסמבלי) של MIPS</h3>
+          <p>אוגרים, פקודות מכונה ומדומות, יישור זיכרון, Endianness ו־syscall</p>
+          <span class="ch-go">פתח פרק ←</span>
+        </a>
+      </div>
+    </section>
+    <section class="unit-sec">
+      <h2>יחידה 4 · רב־מחזורי, הצנרה וחריגות</h2>
+      <div class="ch-grid">
+        <a class="ch-card" href="08_Multicycle_FSM_COCKPIT_HE.html" data-search="08 המעבד הרב־מחזורי ומכונת מצבים (FSM) פיצול למחזורי שעון, אוגרי ביניים (IR, MDR, A, B, ALUOut) ו־FSM">
+          <div class="ch-top">
+            <span class="ch-num">פרק 08</span>
+            <span class="ch-meta">מעבדת FSM רב־מחזורי</span>
+          </div>
+          <h3>המעבד הרב־מחזורי ומכונת מצבים (FSM)</h3>
+          <p>פיצול למחזורי שעון, אוגרי ביניים (IR, MDR, A, B, ALUOut) ו־FSM</p>
+          <span class="ch-go">פתח פרק ←</span>
+        </a>
+        <a class="ch-card" href="09_Pipeline_Complete_COCKPIT_HE.html" data-search="09 הצנרה (Pipeline) וסיכונים שלבי IF/ID/EX/MEM/WB, סיכוני נתונים, Forwarding, Stall וסיכוני בקרה">
+          <div class="ch-top">
+            <span class="ch-num">פרק 09</span>
+            <span class="ch-meta">מעבדת Pipeline מלאה</span>
+          </div>
+          <h3>הצנרה (Pipeline) וסיכונים</h3>
+          <p>שלבי IF/ID/EX/MEM/WB, סיכוני נתונים, Forwarding, Stall וסיכוני בקרה</p>
+          <span class="ch-go">פתח פרק ←</span>
+        </a>
+        <a class="ch-card" href="10_Interrupts_Exceptions_COCKPIT_HE.html" data-search="10 מנגנון הפסיקה והחריגה Exceptions מול Interrupts, Coprocessor 0, EPC, Cause ו־Flush בהצנרה">
+          <div class="ch-top">
+            <span class="ch-num">פרק 10</span>
+            <span class="ch-meta">מעבדת חריגות ופסיקות</span>
+          </div>
+          <h3>מנגנון הפסיקה והחריגה</h3>
+          <p>Exceptions מול Interrupts, Coprocessor 0, EPC, Cause ו־Flush בהצנרה</p>
+          <span class="ch-go">פתח פרק ←</span>
+        </a>
+      </div>
+    </section>
+    <section class="unit-sec">
+      <h2>יחידה 5 · זיכרון, נקודה צפה ומחסנית</h2>
+      <div class="ch-grid">
+        <a class="ch-card" href="11_Cache_Memory_COCKPIT_HE.html" data-search="11 זיכרון מטמון (Cache Memory) היררכיית זיכרון, עקרון המקומיות, מיפוי ישיר/אסוציאטיבי, Hit/Miss ו־AMAT">
+          <div class="ch-top">
+            <span class="ch-num">פרק 11</span>
+            <span class="ch-meta">מעבדת Cache אינטראקטיבית</span>
+          </div>
+          <h3>זיכרון מטמון (Cache Memory)</h3>
+          <p>היררכיית זיכרון, עקרון המקומיות, מיפוי ישיר/אסוציאטיבי, Hit/Miss ו־AMAT</p>
+          <span class="ch-go">פתח פרק ←</span>
+        </a>
+        <a class="ch-card" href="12_IEEE754_Floating_Point_COCKPIT_HE.html" data-search="12 נקודה צפה (IEEE 754) ייצוג Float/Double, Hidden Bit, Bias, מקרי קצה ופקודות נקודה צפה">
+          <div class="ch-top">
+            <span class="ch-num">פרק 12</span>
+            <span class="ch-meta">מעבדת IEEE 754</span>
+          </div>
+          <h3>נקודה צפה (IEEE 754)</h3>
+          <p>ייצוג Float/Double, Hidden Bit, Bias, מקרי קצה ופקודות נקודה צפה</p>
+          <span class="ch-go">פתח פרק ←</span>
+        </a>
+        <a class="ch-card" href="13_Stack_Procedures_COCKPIT_HE.html" data-search="13 מחסנית, פרוצדורות ומהדר $sp, push/pop, jal/jr $ra, מוסכמות Caller/Callee, קומפילציה ולינקר">
+          <div class="ch-top">
+            <span class="ch-num">פרק 13</span>
+            <span class="ch-meta">מעבדת מחסנית ופרוצדורות</span>
+          </div>
+          <h3>מחסנית, פרוצדורות ומהדר</h3>
+          <p>$sp, push/pop, jal/jr $ra, מוסכמות Caller/Callee, קומפילציה ולינקר</p>
+          <span class="ch-go">פתח פרק ←</span>
+        </a>
+      </div>
+    </section>
+  </main>
+  <script>
+    (function () {
+      var KEY = 'hr_course_font_scale_v2';
+      var s = parseFloat(localStorage.getItem(KEY) || '1');
+      if (isNaN(s) || s < 0.85 || s > 1.4) s = 1;
+      function setS(v) {
+        s = Math.max(0.85, Math.min(1.4, Math.round(v * 100) / 100));
+        document.documentElement.style.setProperty('--scale', String(s));
+        try { localStorage.setItem(KEY, String(s)); } catch (e) {}
+      }
+      setS(s);
+      document.getElementById('fMinus').onclick = function () { setS(s - 0.08); };
+      document.getElementById('fPlus').onclick = function () { setS(s + 0.08); };
+      var q = document.getElementById('hubSearch');
+      q.addEventListener('input', function () {
+        var v = q.value.trim().toLowerCase();
+        document.querySelectorAll('.unit-sec').forEach(function (sec) {
+          var any = false;
+          sec.querySelectorAll('.ch-card').forEach(function (c) {
+            var ok = !v || (c.dataset.search || '').toLowerCase().indexOf(v) !== -1;
+            c.classList.toggle('hidden', !ok);
+            if (ok) any = true;
+          });
+          sec.classList.toggle('hidden', !any);
+        });
+      });
+    })();
+  </script>
+<script>if("serviceWorker" in navigator && location.protocol.startsWith("http")){navigator.serviceWorker.register("./sw.js").catch(function(){});}</script>
+</body>
+</html>
